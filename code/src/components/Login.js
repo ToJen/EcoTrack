@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, Image, Text, Button,
         StyleSheet, Animated, Keyboard, KeyboardAvoidingView } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Feather';
 
 import logo from '../images/logo.jpg';
 

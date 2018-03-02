@@ -1,13 +1,26 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity} from 'react-native'
-import {DrawerNavigator} from 'react-navigation';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Button} from 'react-native';
+
 
 export default class HomeScreen extends Component {
 	render() {
 		return(
-      <View>
-        <Text>Home</Text>
+      <View style={styles.container}>
+        <Text>Home{'\n'}</Text>
+        <Button
+        	title="Scan Items"
+        	color="#9ECF62"
+        	onPress={ () => this.props.navigation.navigate('ScanScreen') }
+        />
       </View>
 		)
 	}
 }
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
+	}
+});

@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Feather';
 import LoginScreen from './src/components/Login';
 import SignupScreen from './src/components/Signup';
 import HomeScreen from './src/components/Home';
+import ScanScreen from './src/components/Scan';
 
 
 const DrawerStack = DrawerNavigator({
@@ -12,6 +13,12 @@ const DrawerStack = DrawerNavigator({
     screen : HomeScreen, 
     navigationOptions: {
       drawerIcon: () => (<Icon name="home" size={20} color="#000" />)
+    }
+  },
+  Scan: {
+    screen : ScanScreen, 
+    navigationOptions: {
+      drawerIcon: () => (<Icon name="camera" size={20} color="#000" />)
     }
   }
 })
@@ -25,8 +32,8 @@ const DrawerNavigation = StackNavigator(
     navigationOptions: ({navigation}) => ({
       headerStyle: {backgroundColor: '#9ECF62'},
       title: `${navigation.state.params.title}`,
-      headerLeft: <Icon name="navicon" size={30} 
-                        color="#e7ff6e" style={{padding: 5}} 
+      headerLeft: <Icon name="menu" size={30} 
+                        color="#FFF" style={{padding: 5}} 
                         onPress={() => {
                                   if (navigation.state.index === 0) {
                                     navigation.navigate('DrawerOpen')
@@ -40,24 +47,23 @@ const DrawerNavigation = StackNavigator(
   }
 );
 
-const LoginStack = StackNavigator({
-  LoginScreen: { screen: LoginScreen },
-  SignupScreen: { screen: SignupScreen }
-}, {
-  headerMode: 'none',
-/*  navigationOptions: {
-    headerStyle: {backgroundColor: 'red'},
-    title: 'You are not logged in'
-  } */
-});
+const LoginStack = StackNavigator(
+  {
+    LoginScreen: { screen: LoginScreen },
+    SignupScreen: { screen: SignupScreen }
+  }, {
+    headerMode: 'none',
+  }
+);
 
-const PrimaryNav = StackNavigator({
-  loginStack: { screen: LoginStack },
-  drawerStack: { screen: DrawerNavigation }
-}, {
-  // Default config for all screens
-  headerMode: 'none',
-  initialRouteName: 'loginStack'
-})
+const PrimaryNav = StackNavigator(
+  {
+    loginStack: { screen: LoginStack },
+    drawerStack: { screen: DrawerNavigation }
+  }, {
+    headerMode: 'none',
+    initialRouteName: 'loginStack'
+  }
+);
 
-export default PrimaryNav
+export default PrimaryNav;

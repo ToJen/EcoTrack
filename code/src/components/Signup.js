@@ -68,9 +68,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 40,
   },
-  label: {
-    color: "#FFF"
-  },
   formButton: {
     alignItems: "center",
     justifyContent: "center",
