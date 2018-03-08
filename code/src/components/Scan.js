@@ -4,6 +4,31 @@ import Icon from 'react-native-vector-icons/Feather';
 import { BarCodeScanner, Permissions } from 'expo';
 
 
+const zeeScores = require('../data/sample.json')
+
+class DisplayInfo extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  fetchZeeScore(data) {
+    // console.log(zeeScores[data])
+    return zeeScores[data]
+  }
+
+  render() {
+    const zeeScore = this.fetchZeeScore(this.props.data)
+
+    return (
+      <View style={{padding:'10%'}}>
+        <Text style={{fontWeight:'bold'}}>Barcode Data {'\t\t'} ZeeScore</Text>
+        <Text>{this.props.data} {'\t\t'} {zeeScore}</Text>
+      </View>
+
+    );
+  }
+}
+
 export default class ScanScreen extends Component {
 
   constructor(props) {
@@ -24,8 +49,11 @@ export default class ScanScreen extends Component {
 
   handleBarCodeRead = ({ type, data }) => {
     alert(`Barcode with type ${type} and data ${data} has been scanned!`);
+    this.setState({
+      barcodeType: type,
+      barcodeData: data
+    })
   }
-
 
   render() {
     const { hasCameraPermission } = this.state;
@@ -39,8 +67,11 @@ export default class ScanScreen extends Component {
         <View style={{ flex: 1 }}>
           <BarCodeScanner
             onBarCodeRead={this.handleBarCodeRead}
-            style={StyleSheet.absoluteFill}
+            // style={StyleSheet.absoluteFill}
+            style={{height:'50%'}}
           />
+          <Text>{'\n'}</Text>
+          <DisplayInfo data={this.state.barcodeData} />
         </View>
       );
     }
