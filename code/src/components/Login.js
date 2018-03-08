@@ -87,7 +87,7 @@ export default class LoginScreen extends Component {
             <Text>{'\n'}</Text>
             <Button
               title="Sign up"
-              onPress={ () => this.props.navigation.navigate('SignupScreen') }
+              onPress={ () => this.props.navigation.navigate('Signup') }
               style={styles.formButton}
               color="#9ECF62"
              />

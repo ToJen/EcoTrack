@@ -10,7 +10,7 @@ export default class HomeScreen extends Component {
         <Button
         	title="Scan Items"
         	color="#9ECF62"
-        	onPress={ () => this.props.navigation.navigate('ScanScreen') }
+        	onPress={ () => this.props.navigation.navigate('Scan', {title:'Scan items'}) }
         />
       </View>
 		)

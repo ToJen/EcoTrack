@@ -30,10 +30,10 @@ export default class SignupScreen extends Component {
             <Text>{'\n'}</Text>
             <View style={styles.formButton}>
               <Button
-                onPress={ ()=> this.props.navigation.navigate('drawerStack') }
+                onPress={ ()=> this.props.navigation.navigate('drawerStack', {title:'Home'}) }
                 style={styles.buttonText}
                 title="Submit"
-                color="#748037"
+                color="#9ECF62"
               />
             </View>
           </View>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     width: 300,
+    paddingHorizontal: 20,
     backgroundColor: '#FFF'
   },
   sign: {

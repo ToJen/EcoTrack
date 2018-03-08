@@ -18,6 +18,7 @@ const DrawerStack = DrawerNavigator({
   Scan: {
     screen : ScanScreen, 
     navigationOptions: {
+      title: 'Scan Items',
       drawerIcon: () => (<Icon name="camera" size={20} color="#000" />)
     }
   }
@@ -49,8 +50,8 @@ const DrawerNavigation = StackNavigator(
 
 const LoginStack = StackNavigator(
   {
-    LoginScreen: { screen: LoginScreen },
-    SignupScreen: { screen: SignupScreen }
+    Login: { screen: LoginScreen },
+    Signup: { screen: SignupScreen }
   }, {
     headerMode: 'none',
   }
